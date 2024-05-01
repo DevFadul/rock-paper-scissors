@@ -1,16 +1,35 @@
+window.addEventListener("DOMContentLoaded", (event) => {
+
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+const resultsDiv = document.querySelector("#results");
+const winnerDiv = document.querySelector("#winner");
+
+rockBtn.addEventListener('click', () => {
+    playRound('rock');
+})
+paperBtn.addEventListener('click', () => {
+    playRound('paper');
+})
+scissorsBtn.addEventListener('click', () => {
+    playRound('scissors');
+})
+
+
 function getComputerChoice() {
     const choice = ["rock","paper","scissors"];
     return choice[Math.floor(Math.random()*choice.length)]
 }
 
-function checkWinner (playerSelection, computerSelection) {
-    if (playerSelection == computerSelection) {
+function checkWinner (playerSelection, computerChoice) {
+    if (playerSelection == computerChoice) {
         return "Tie"
     }
     else if (
-        (playerSelection == "rock" && computerSelection == "scissors") ||
-        (playerSelection == "scissors" && computerSelection == "paper") ||
-        (playerSelection == "paper" && computerSelection == "rock")
+        (playerSelection == "rock" && computerChoice == "scissors") ||
+        (playerSelection == "scissors" && computerChoice == "paper") ||
+        (playerSelection == "paper" && computerChoice == "rock")
     ) {
         return "Player"
     }
@@ -19,27 +38,31 @@ function checkWinner (playerSelection, computerSelection) {
     }
 }
 
-function playRound (playerSelection,computerSelection) {
-    const result = checkWinner(playerSelection,computerSelection)
+
+function playRound (playerSelection) {
+    let playerPoints = 0;
+    let compPoints = 0;
+    const computerChoice = getComputerChoice();
+    const result = checkWinner(playerSelection, computerChoice);
     if (result == "Tie") {
-        return "its a tie!"
+        resultsDiv.textContent = "its a tie!"
     }
-    else if (result == "Player") {
-        return `You Win! ${playerSelection} beats ${computerSelection}`
+    else if (result == 'Player') {
+        resultsDiv.textContent = `You Win! ${playerSelection} beats ${computerChoice}`
+        playerPoints += 1;
     }
-    else {
-        return `You lose! ${computerSelection} beats ${playerSelection}`
+    else if (result == 'Computer'){
+        resultsDiv.textContent = `You lose! ${computerChoice} beats ${playerSelection}`
+        compPoints += 1;
     }
-}
 
-function game() {
-console.log("Welcome")
-for (let i = 0; i<5;i++){
-    const playerSelection = prompt("rock paper or scissors?");
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection,computerSelection));
-}
-}
+    if (playerPoints = 5) {
+        winnerDiv.textContent = 'You Win!';
+    }
+    else if (compPoints = 5) {
+        winnerDiv.textContent = 'Computer Wins!';
+    }
+    console.log(playerPoints);
 
-game();
-
+}
+});
