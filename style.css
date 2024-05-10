@@ -1,0 +1,97 @@
+html {
+    background-color: #30355a;
+}
+
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 65px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+}
+
+button {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 300px;
+    border-radius: 100px;
+    background-color: aliceblue;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;  font-family: "Press Start 2P", system-ui;
+}
+
+button:hover {
+    background-color: #656ca4;
+    color: white; 
+  }
+
+a:hover {
+    background-color: black;
+}
+
+#results, #score, #winner, #comp-score {
+    width: 900px;
+    height: 50px;  
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 27px;
+}
+
+#results {
+    flex-direction: row;
+}
+
+.div-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+img {
+    height: 230px;
+    width: 230px;
+}
