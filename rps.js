@@ -5,6 +5,8 @@ const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 const resultsDiv = document.querySelector("#results");
 const winnerDiv = document.querySelector("#winner");
+const scoreDiv = document.querySelector("#score");
+const compScore = document.querySelector("#comp-score");
 
 rockBtn.addEventListener('click', () => {
     playRound('rock');
@@ -38,10 +40,41 @@ function checkWinner (playerSelection, computerChoice) {
     }
 }
 
+let playerPoints = 0;
+let compPoints = 0;
+const scoreLimit = 5;
+
+function scoreIncrement () {
+    if (playerPoints == scoreLimit) {
+        winnerDiv.textContent = 'You win! Refresh to play again.';
+    }
+    else {
+    playerPoints++;
+    }
+}
+function CompIncrement () {
+    if (compPoints == scoreLimit) {
+        winnerDiv.textContent = 'Computer Wins! Refresh to play again.';
+    }
+    else {
+    compPoints++;
+    }
+}
+
+function updateScore () {
+    scoreDiv.innerHTML = `Your score: ${playerPoints}`;
+}
+/*
+function displayWinner () {
+    winnerDiv.textContent = 'You win! Refresh to play again.';
+}
+*/
+
+function updateCompScore () {
+    compScore.textContent = `Computer score: ${compPoints}`;
+}
 
 function playRound (playerSelection) {
-    let playerPoints = 0;
-    let compPoints = 0;
     const computerChoice = getComputerChoice();
     const result = checkWinner(playerSelection, computerChoice);
     if (result == "Tie") {
@@ -49,20 +82,13 @@ function playRound (playerSelection) {
     }
     else if (result == 'Player') {
         resultsDiv.textContent = `You Win! ${playerSelection} beats ${computerChoice}`
-        playerPoints += 1;
+        scoreIncrement();
+        updateScore();
     }
     else if (result == 'Computer'){
         resultsDiv.textContent = `You lose! ${computerChoice} beats ${playerSelection}`
-        compPoints += 1;
+        CompIncrement();
+        updateCompScore();
     }
-
-    if (playerPoints = 5) {
-        winnerDiv.textContent = 'You Win!';
-    }
-    else if (compPoints = 5) {
-        winnerDiv.textContent = 'Computer Wins!';
-    }
-    console.log(playerPoints);
-
 }
 });

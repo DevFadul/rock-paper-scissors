@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&family=Press+Start+2P&family=Shrikhand&display=swap');
+        </style>
+    <link rel="stylesheet" href="style.css">
     <script src="rps.js"></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>This is a Rock Paper Scissors game!</h1>
+    <div class="title-container">
+    <div class="title">Welcome to Rock Paper Scissors game!</div>
+    </div>
+<div class="button-container">
+    <button id="rock"><img src="rock.png" alt="ROCK"></button>
+    <button id="paper"><img src="toilet-paper.png" alt="PAPER"></button>
+    <button id="scissors"><img src="scissors.png" alt="SCISSORS"></button>
+</div>
 
-    <button id="rock"></button>
-    <button id="paper"></button>
-    <button id="scissors"></button>
-
+<div class="div-container">
     <div id="results"></div>
-    <div id="score"></div>
-    <div id="winner">m</div>
+    <div id="score">Score:</div>
+    <div id="comp-score"></div>
+    <div id="winner"></div>
+</div>
 </body>
 </html>
