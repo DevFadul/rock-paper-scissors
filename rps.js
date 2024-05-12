@@ -45,19 +45,17 @@ let compPoints = 0;
 const scoreLimit = 5;
 
 function scoreIncrement () {
+    playerPoints++;
+
     if (playerPoints == scoreLimit) {
         winnerDiv.textContent = 'You win! Refresh to play again.';
     }
-    else {
-    playerPoints++;
-    }
 }
 function CompIncrement () {
+    compPoints++;
+
     if (compPoints == scoreLimit) {
         winnerDiv.textContent = 'Computer Wins! Refresh to play again.';
-    }
-    else {
-    compPoints++;
     }
 }
 
